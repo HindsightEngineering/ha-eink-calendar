@@ -1,0 +1,100 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "E-Ink Calendar",
+        "description": "Choose the calendars to show. Weather comes from NOAA for your Home Assistant home location (US only).",
+        "data": {
+          "name": "Display name",
+          "calendars": "Calendars",
+          "waste_calendar": "Trash / recycling calendar (shown as icons)",
+          "temperature_unit": "Temperature unit",
+          "first_weekday": "Week starts on",
+          "weeks": "Weeks shown",
+          "show_end_time": "Show event end times",
+          "title": "Header label (optional)",
+          "wake_minutes": "Display check interval",
+          "quiet_start": "Quiet hours start (no wakes)",
+          "quiet_end": "Quiet hours end",
+          "weather_redraw_hours": "Minimum hours between weather-only redraws"
+        },
+        "data_description": {
+          "waste_calendar": "Events on this calendar become bin icons. Summaries containing 'recycl' get the recycling icon, 'yard' / 'green waste' / 'compost' the leaf.",
+          "quiet_start": "Set start and end to the same time to disable quiet hours.",
+          "weather_redraw_hours": "Calendar changes always republish right away; forecast tweaks wait this long to save battery."
+        }
+      },
+      "tags": {
+        "title": "Calendar tags",
+        "description": "Optional 1-3 character tag drawn in a black chip before each event, e.g. K, S, FAM. Leave blank for none."
+      },
+      "finish": {
+        "title": "Display credentials",
+        "description": "Put these in your ESPHome secrets.yaml, then flash the firmware from the repository's esphome folder.\n\n**eink_device_id:** `{device_id}`\n\n**eink_token:** `{token}`\n\nThe display calls `{path}`. The token is also shown later under this integration's Configure button."
+      }
+    },
+    "error": {
+      "no_calendars": "Select at least one calendar."
+    },
+    "abort": {
+      "already_configured": "A display with this name already exists."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "E-Ink Calendar options",
+        "description": "Device ID `{device_id}`, token `{token}`.",
+        "data": {
+          "calendars": "Calendars",
+          "waste_calendar": "Trash / recycling calendar (shown as icons)",
+          "temperature_unit": "Temperature unit",
+          "first_weekday": "Week starts on",
+          "weeks": "Weeks shown",
+          "show_end_time": "Show event end times",
+          "title": "Header label (optional)",
+          "wake_minutes": "Display check interval",
+          "quiet_start": "Quiet hours start (no wakes)",
+          "quiet_end": "Quiet hours end",
+          "weather_redraw_hours": "Minimum hours between weather-only redraws",
+          "refresh_minutes": "Calendar refresh interval",
+          "latitude": "Forecast latitude (blank = home)",
+          "longitude": "Forecast longitude (blank = home)",
+          "width": "Image width (px)",
+          "height": "Image height (px)"
+        }
+      },
+      "tags": {
+        "title": "Calendar tags",
+        "description": "Optional 1-3 character tag drawn in a black chip before each event. Leave blank for none."
+      }
+    }
+  },
+  "selector": {
+    "temperature_unit": {
+      "options": { "F": "°F", "C": "°C" }
+    },
+    "first_weekday": {
+      "options": { "sunday": "Sunday", "monday": "Monday" }
+    }
+  },
+  "entity": {
+    "image": {
+      "calendar_image": { "name": "Calendar" }
+    },
+    "sensor": {
+      "battery": { "name": "Battery" },
+      "battery_voltage": { "name": "Battery voltage" },
+      "signal_strength": { "name": "Wi-Fi signal" },
+      "last_checkin": { "name": "Last check-in" },
+      "next_wake": { "name": "Next wake" },
+      "last_published": { "name": "Last published" }
+    },
+    "switch": {
+      "keep_awake": { "name": "Keep awake for update" }
+    },
+    "button": {
+      "republish": { "name": "Republish now" }
+    }
+  }
+}

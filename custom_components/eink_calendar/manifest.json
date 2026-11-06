@@ -1,0 +1,12 @@
+{
+  "domain": "eink_calendar",
+  "name": "E-Ink Calendar",
+  "codeowners": ["@HindsightEngineering"],
+  "config_flow": true,
+  "dependencies": ["http", "calendar"],
+  "documentation": "https://github.com/HindsightEngineering/ha-eink-calendar",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/HindsightEngineering/ha-eink-calendar/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

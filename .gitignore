@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+esphome/secrets.yaml
+esphome/.esphome/
+esphome/build/
+preview.png
